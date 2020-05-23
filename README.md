@@ -14,6 +14,8 @@ The test uses selenium to browse our app, click the button and validate the text
 To check it out, just clone it and run the tests:
 
 ```shell
+git clone https://github.com/BynetDevTeam/cs-selenium-robotframework.git
+cd cs-selenium-robotframework
 dotnet test
 ```
 
