@@ -3,7 +3,8 @@
 **Build dotnet core > 3.**
 
 Example of a simple c# WebApp (created from the basic template).</br>
-The base WebApp was added with a button, an h2 header and a script that change the h2 text content when the button is clicked.
+The base WebApp was added with a button, an h2 header and a script that change the h2 text content when the button is clicked.</br>
+Added in [/DemoWebApp/Pages/Index.cshtml](/DemoWebApp/Pages/Index.cshtml)
 
 In the testing area, we have a test fixture starting our app at `localhost:5000` and stopping it when the tests are done,</br>
 And a test made from a couple of test cases (one for each browser).</br>
