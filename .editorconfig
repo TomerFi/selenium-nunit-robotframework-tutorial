@@ -53,3 +53,8 @@ end_of_line = lf
 [**.json]
 indent_style = space
 indent_size = 4
+
+[**.robot]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true

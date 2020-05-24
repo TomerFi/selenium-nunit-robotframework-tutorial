@@ -33,3 +33,4 @@ target
 # Project specific (allways keep last)
 .flattened-pom.xml
 !**/lib/**
+**/rfoutput
