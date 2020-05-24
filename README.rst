@@ -1,10 +1,6 @@
-.. role:: raw-html(raw)
-    :format: html
-
 =================================================
 Example C# WebApp Unit Tests and Acceptance Tests
 =================================================
-
 
 .. contents::
    :local:
@@ -12,7 +8,6 @@ Example C# WebApp Unit Tests and Acceptance Tests
 
 Base Requirements
 =================
-
 
 * `.Net Core > 3 <https://dotnet.microsoft.com/download/dotnet-core/3.1>`_ - written with ``.Net Core 3.1.102``.
 * `Python > 3 <https://www.python.org/downloads/>`_ - written with ``Python 3.8.2`` (Python is needed for the acceptance tests).
@@ -25,7 +20,6 @@ Base Requirements
    git clone https://github.com/BynetDevTeam/cs-selenium-robotframework.git
    cd cs-selenium-robotframework
 
-
 Web Application
 ===============
 
@@ -35,7 +29,6 @@ Web Application
 
 | A simple ``C# WebApp`` created from the *basic template provided with ``dotnet``*.
 | The base application was added with:
-
 
 * a ``button`` tag with the id *clickmeButton*.
 * a ``h2`` tag with the id *displayHeader* and the initial content text of *Not clicked*.
@@ -58,7 +51,6 @@ Unit Testing
 +----------------------------------------+
 
 For our unit tests we used:
-
 
 * `Nunit <https://nunit.org/>`_ as the testing framework for our ``dotnet`` project.
 * `Selenium <https://www.selenium.dev/>`_ as the toolset providing tools for testing browser capbalities.
@@ -148,7 +140,6 @@ Acceptance Testing
 
 For our acceptance tests we used:
 
-
 * `Robot Framework <https://robotframework.org>`_ as the automation tool for executing our tests.
 * `SeleniumLibrary <https://robotframework.org/SeleniumLibrary/>`_ as the library providing tools for testing browser capbalities.
 
@@ -211,7 +202,6 @@ Tests
 | The ``Press Button`` actually uses 4 other keywords to accomplish its goal.
 | As you can see in the ``Settings`` section, we declare `resources.robot <acceptance/resources.robot>`_ as a resource.
 | It provides us with the following custom ``Keywords``:
-
 
 * Open Browser With Url
 * Click Test Button
