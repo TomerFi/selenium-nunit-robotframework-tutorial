@@ -53,10 +53,10 @@ dotnet run -p DemoWebApp
 
 For our unit tests we used:
 
-- [**Nunit**](https://nunit.org/) as the testing framework for our `dotnet` project.
-- [**Selenium**](https://www.selenium.dev/) as the toolset providing tools for testing browser capbalities.
+- [Nunit](https://nunit.org/) as the testing framework for our `dotnet` project.
+- [Selenium](https://www.selenium.dev/) as the toolset providing tools for testing browser capbalities.
 
-[**DemoWebAppTest.cs**](DemoWebApp.Tests/DemoWebAppTest.cs) is out test file,
+[DemoWebAppTest.cs](DemoWebApp.Tests/DemoWebAppTest.cs) is our test file,
 `Nunit` will pick it based on its name and attributes.
 
 We use the `OneTimeSetup` attributeto to spin-up our server prior to executing our tests:</br>
@@ -83,7 +83,7 @@ public void TearDownWebApp()
 Our test is quite simple:
 
 - It first navigates to our server at `http://localhost:5000`.
-- It then find out `button` element by its id and click it.
+- It then find our `button` element by its id and click it.
 - It then validates the `h2` element's content text to `Button clicked`.
 
 We assert base on the `clicked` boolean value,
@@ -138,8 +138,8 @@ dotnet test
 
 For our acceptance tests we used:
 
-- [**Robot Framework**](https://robotframework.org) as the automation tool for executing our tests.
-- [**SeleniumLibrary**](https://robotframework.org/SeleniumLibrary/) as the library providing tools for testing browser capbalities.
+- [Robot Framework](https://robotframework.org) as the automation tool for executing our tests.
+- [SeleniumLibrary](https://robotframework.org/SeleniumLibrary/) as the library providing tools for testing browser capbalities.
 
 Please step into the `acceptance` folder, our next steps will be executed from it as our acceptance tests doesn't have,</br>
 nor should it have, any direct connection to our project base code.
@@ -219,7 +219,8 @@ To execute our acceptance tests, simplly run:
 robot -d rfoutput webapp_tests.robot
 ```
 
-This will run our tests and save a pretty and useful html report summary and xml logs in a folder called `rfoutput`.
+This will run our tests and save a pretty and useful html report summary and xml logs in a folder called `rfoutput`.</br>
+You can see and example of the summary report [here](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#report-file).
 
 ----------------------------------------
 
