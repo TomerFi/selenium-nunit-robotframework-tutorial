@@ -27,7 +27,7 @@ Web Application
 | `DemoWebApp <DemoWebApp>`_ |
 +----------------------------+
 
-| A simple ``C# WebApp`` created from the *basic template provided with ``dotnet``*.
+| A simple ``C# WebApp`` created from the *basic template provided with* ``dotnet``.
 | The base application was added with:
 
 * a ``button`` tag with the id *clickmeButton*.
