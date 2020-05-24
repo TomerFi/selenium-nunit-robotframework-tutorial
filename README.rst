@@ -6,7 +6,7 @@ Example C# WebApp Unit Tests and Acceptance Tests
 =================================================
 
 
-.. contents:: Table of contents:
+.. contents::
    :local:
    :depth: 2
 
