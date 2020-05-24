@@ -5,7 +5,10 @@
 - [Unit Testing](#unit-testing)
 - [Acceptance Testing](#acceptance-testing)
   - [Prepare Environment](#prepare-environment)
-- [Literature](#literature)
+  - [Tests](#tests)
+- [Links](#literature)
+
+----------------------------------------
 
 ## Base Requirements
 
@@ -20,9 +23,11 @@ git clone https://github.com/BynetDevTeam/cs-selenium-robotframework.git
 cd cs-selenium-robotframework
 ```
 
+----------------------------------------
+
 ## Web Application
 
-[**DemoWebApp**](DemoWebApp)
+| [DemoWebApp](DemoWebApp) |
 
 A simple `C# WebApp` created from the *basic template provided with `dotnet`*.</br>
 The base application was added with:
@@ -40,9 +45,11 @@ To run the project and serve the app at `http://localhost:5000`:
 dotnet run -p DemoWebApp
 ```
 
+----------------------------------------
+
 ## Unit Testing
 
-[**DemoWebApp.Tests**](DemoWebApp.Tests)
+| [DemoWebApp.Tests](DemoWebApp.Tests) |
 
 For our unit tests we used:
 
@@ -123,9 +130,11 @@ dotnet test
 > Please note: Based on your personal environment, `Internet Explorer` might require specific configruation for the test to pass.</br>
 > If so, it's simple, please follow [this](http://www.programmersought.com/article/1603471677/).
 
+----------------------------------------
+
 ## Acceptance Testing
 
-[**acceptance**](acceptance)
+| [acceptance](acceptance) |
 
 For our acceptance tests we used:
 
@@ -154,7 +163,7 @@ just **don't forget** to set the `URL` variable in [resources.robot](acceptance/
 ${URL}              http://localhost:5000
 ```
 
-### Our Tests
+### Tests
 
 [webapp_tests.robot](acceptance/webapp_tests.robot) is our `test suite`. We have 3 `Test Cases`,
 one for each driver.</br>
@@ -195,7 +204,7 @@ It provides us with the following custom `Keywords`:
 - Click Test Button
 - Validate New Text
 
-The 4th `Keyword` is not a custom one, it actually comes from [SeleniumLibrary](https://robotframework.org/SeleniumLibrary/),</br>
+The 4th `Keyword`, `Close Browser`, is not a custom one, it actually comes from [SeleniumLibrary](https://robotframework.org/SeleniumLibrary/),</br>
 which is imported within our [resources.robot](acceptance/resources.robot):
 
 ```text
@@ -210,9 +219,11 @@ To execute our acceptance tests, simplly run:
 robot -d rfoutput webapp_tests.robot
 ```
 
-This will run our tests and save a pretty html summary and logs in a folder called rfoutput.
+This will run our tests and save a pretty and useful html report summary and xml logs in a folder called `rfoutput`.
 
-## Literature
+----------------------------------------
+
+## Links
 
 - [Nunit3 home](https://nunit.org/)
 - [Nunit3 docs](https://github.com/nunit/docs/wiki)
