@@ -143,8 +143,8 @@ For our acceptance tests we used:
 * `Robot Framework <https://robotframework.org>`_ as the automation tool for executing our tests.
 * `SeleniumLibrary <https://robotframework.org/SeleniumLibrary/>`_ as the library providing tools for testing browser capbalities.
 
-| Please step into the ``acceptance`` folder, our next steps will be executed from it as our acceptance tests doesn't have,
-| nor should it have, any direct connection to our project base code.
+| Please step into the ``acceptance`` folder, our next steps will be executed from it as our
+| acceptance tests doesn't have, nor should it have, any direct connection to our project base code.
 
 Prepare Environment
 -------------------
@@ -222,8 +222,8 @@ To execute our acceptance tests, simplly run:
 
    robot -d rfoutput webapp_tests.robot
 
-| This will run our tests and save a pretty and useful html report summary and xml logs in a folder called ``rfoutput``.
-| You can see and example of the summary report `here <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#report-file>`_.
+| This will run our tests and save a pretty and useful html report summary and xml logs in a folder
+| called ``rfoutput``. You can see and example of the summary report `here <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#report-file>`_.
 
 Links
 =====

@@ -22,7 +22,7 @@
 *.mdtxt text eol=crlf
 *.mdtext text eol=crlf
 *.txt text eol=crlf
-*.rst text eol=crlf
+*.rst text eol=lf
 CHANGELOG text eol=crlf
 CONTRIBUTING text eol=crlf
 *COPYRIGHT* text eol=crlf
