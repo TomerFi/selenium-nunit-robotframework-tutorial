@@ -22,10 +22,4 @@
     <ProjectReference Include="..\DemoWebApp\DemoWebApp.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="..\..\..\resources\*.*">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
 </Project>
