@@ -18,7 +18,7 @@ namespace DemoWebApp.Tests
         [OneTimeSetUp]
         public void SetUpWebApp()
         {
-            app = DemoWebApp.Program.CreateHostBuilder(new string[] {}).Build();
+            app = DemoWebApp.Program.CreateHostBuilder(new string[] { }).Build();
             app.RunAsync();
         }
 
@@ -28,7 +28,7 @@ namespace DemoWebApp.Tests
         public void TestButtonClick(Type drvType)
         {
             bool clicked;
-            using (var driver = (IWebDriver) Activator.CreateInstance(drvType))
+            using (var driver = (IWebDriver)Activator.CreateInstance(drvType))
             {
                 WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
                 driver.Navigate().GoToUrl("http://localhost:5000");
