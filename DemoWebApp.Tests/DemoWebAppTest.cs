@@ -11,7 +11,6 @@ using SeleniumExtras.WaitHelpers;
 
 namespace DemoWebApp.Tests
 {
-    [TestFixture]
     public class DemoWebAppTest
     {
         private IHost app;
@@ -36,7 +35,7 @@ namespace DemoWebApp.Tests
                 driver.FindElement(By.Id("clickmeButton")).Click();
 
                 clicked = wait.Until(ExpectedConditions.TextToBePresentInElement(
-                  driver.FindElement(By.Id("displayHeader")), "Button clicked"));
+                    driver.FindElement(By.Id("displayHeader")), "Button clicked"));
             }
             Assert.True(clicked, "button not clicked.");
         }
@@ -45,6 +44,7 @@ namespace DemoWebApp.Tests
         public void TearDownWebApp()
         {
             app.StopAsync();
+            app.WaitForShutdown();
         }
     }
 }
