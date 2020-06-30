@@ -66,7 +66,7 @@ We use the ``OneTimeSetup`` attributeto to spin-up our server prior to executing
    [OneTimeSetUp]
    public void SetUpWebApp()
    {
-       app = DemoWebApp.Program.CreateHostBuilder(new string[] {}).Build();
+       app = DemoWebApp.Program.CreateHostBuilder(new string[] { }).Build();
        app.RunAsync();
    }
 
@@ -95,7 +95,7 @@ which will be false if our expected conditions are not met withing 10 seconds.
    public void TestButtonClick(Type drvType)
    {
        bool clicked;
-       using (var driver = (IWebDriver) Activator.CreateInstance(drvType))
+       using (var driver = (IWebDriver)Activator.CreateInstance(drvType))
        {
            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
            driver.Navigate().GoToUrl("http://localhost:5000");
