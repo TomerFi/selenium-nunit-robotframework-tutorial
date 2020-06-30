@@ -43,6 +43,7 @@ To run the project and serve the app at ``http://localhost:5000``:
 
    dotnet run -p DemoWebApp
 
+
 Unit Testing
 ============
 
@@ -69,7 +70,7 @@ We use the ``OneTimeSetup`` attributeto to spin-up our server prior to executing
        app.RunAsync();
    }
 
-And the ``OneTimeTearDown`` attribute to shut-down our server.
+And the ``OneTimeTearDown`` attribute to shutdown our server.
 
 .. code-block:: csharp
 
@@ -77,12 +78,13 @@ And the ``OneTimeTearDown`` attribute to shut-down our server.
    public void TearDownWebApp()
    {
        app.StopAsync();
+       app.WaitForShutdown();
    }
 
 Our test is quite simple:
 
 * It first navigates to our server at ``http://localhost:5000``.
-* It then find our ``button`` element by its id and click it.
+* It then finds our ``button`` element by its id and clicks it.
 * It then validates the ``h2`` element's content text to ``Button clicked``.
 
 We assert base on the ``clicked`` boolean value,
@@ -207,7 +209,7 @@ Tests
 * Click Test Button
 * Validate New Text
 
-| The 4th ``Keyword``, ``Close Browser``, is not a custom one, it actually comes from `SeleniumLibrary <https://robotframework.org/SeleniumLibrary/>`_,
+| The 4th keyword, ``Close Browser``, is not a custom one, it actually comes from `SeleniumLibrary <https://robotframework.org/SeleniumLibrary/>`_,
 | which is imported within our `resources.robot <acceptance/resources.robot>`_:
 
 .. code-block:: robotframework
