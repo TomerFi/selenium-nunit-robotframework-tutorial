@@ -17,7 +17,7 @@ Base Requirements
 
 .. code-block:: shell
 
-   git clone https://github.com/BynetDevTeam/cs-selenium-robotframework.git
+   git clone https://github.com/TomerFi/cs-selenium-robotframework.git
    cd cs-selenium-robotframework
 
 Web Application
