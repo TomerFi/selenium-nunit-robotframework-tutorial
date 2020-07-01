@@ -1,6 +1,10 @@
-=================================================
-Example C# WebApp Unit Tests and Acceptance Tests
-=================================================
+=============================================
+Selenium, NUnit, and Robot Framework tutorial
+=============================================
+
+An example C# WebApp tested using `Selenium <https://www.selenium.dev/>`_ browser automation with
+`Nunit <https://nunit.org/>`_ testing framework for unit tests and
+`Robot Framework <https://robotframework.org>`_ automation framework for acceptance tests.
 
 .. contents::
    :local:
@@ -10,15 +14,15 @@ Base Requirements
 =================
 
 * `.Net Core > 3 <https://dotnet.microsoft.com/download/dotnet-core/3.1>`_ - written with ``.Net Core 3.1.102``.
-* `Python > 3 <https://www.python.org/downloads/>`_ - written with ``Python 3.8.2`` (Python is needed for the acceptance tests).
+* `Python > 3 <https://www.python.org/downloads/>`_ - written with ``Python 3.8.2`` (used for the acceptance tests).
 
-| Before starting, it's advised to first clone this repository and step into the project folder,
-| So you can execute the tests. The next steps will assume these tasks are done:
+| Before starting, please clone this repository and step into the solution folder.
+| It will be easier to follow this guide, as the next steps will assume you have done so:
 
 .. code-block:: shell
 
-   git clone https://github.com/TomerFi/selenium-robotframework-example.git
-   cd selenium-robotframework-example
+   git clone https://github.com/TomerFi/selenium-nunit-robotframework-tutorial.git
+   cd selenium-nunit-robotframework-tutorial
 
 Web Application
 ===============
@@ -28,14 +32,14 @@ Web Application
 +----------------------------+
 
 | A simple ``C# WebApp`` created from the *basic template provided with* ``dotnet``.
-| The base application was added with:
+| On top of the base application I've added:
 
-* a ``button`` tag with the id *clickmeButton*.
-* a ``h2`` tag with the id *displayHeader* and the initial content text of *Not clicked*.
-* | a ``script function`` called *clickButton* which is launched at a click event from the *clickmeButton*
-  | and changes the *displayHeader*'s content text to *Button clicked*.
+* a ``button`` tag with the id **clickmeButton**.
+* a ``h2`` tag with the id **displayHeader** and the initial content text of **Not clicked**.
+* | a ``script function`` called **clickButton** invoked by a click event from the **clickmeButton**
+  | and changes the **displayHeader**'s content text to **Button clicked**.
 
-All of those elements were added in `/DemoWebApp/Pages/Index.cshtml </DemoWebApp/Pages/Index.cshtml>`_.
+I've added these elements in `/DemoWebApp/Pages/Index.cshtml </DemoWebApp/Pages/Index.cshtml>`_.
 
 To run the project and serve the app at ``http://localhost:5000``:
 
@@ -43,6 +47,11 @@ To run the project and serve the app at ``http://localhost:5000``:
 
    dotnet run -p DemoWebApp
 
+..
+
+   | Please note: I want to clarify that the web application is not written by me,
+   | It's the original template created with the command ``dotnet new webapp``.
+   | All id did was adding the ``button`` and ``h2`` tags, and the simple script.
 
 Unit Testing
 ============
@@ -51,15 +60,15 @@ Unit Testing
 | `DemoWebApp.Tests <DemoWebApp.Tests>`_ |
 +----------------------------------------+
 
-For our unit tests we used:
+For unit testing I've used:
 
-* `Nunit <https://nunit.org/>`_ as the testing framework for our ``dotnet`` project.
-* `Selenium <https://www.selenium.dev/>`_ as the toolset providing tools for testing browser capbalities.
+* `Nunit <https://nunit.org/>`_ as the testing framework the project.
+* `Selenium <https://www.selenium.dev/>`_ as the toolset providing browser capbalities and automation.
 
-`DemoWebAppTest.cs <DemoWebApp.Tests/DemoWebAppTest.cs>`_ is our test file,
-``Nunit`` will pick it based on its name and attributes.
+`DemoWebAppTest.cs <DemoWebApp.Tests/DemoWebAppTest.cs>`_ is test class, ``Nunit`` will pick it
+based on its name.
 
-We use the ``OneTimeSetup`` attributeto to spin-up our server prior to executing our tests:
+I've used the ``OneTimeSetup`` attribute to spin-up the server prior of executing the test cases:
 
 .. code-block:: csharp
 
@@ -70,7 +79,7 @@ We use the ``OneTimeSetup`` attributeto to spin-up our server prior to executing
        app.RunAsync();
    }
 
-And the ``OneTimeTearDown`` attribute to shutdown our server.
+And the ``OneTimeTearDown`` attribute to shutdown the server afterwards.
 
 .. code-block:: csharp
 
@@ -81,14 +90,14 @@ And the ``OneTimeTearDown`` attribute to shutdown our server.
        app.WaitForShutdown();
    }
 
-Our test is quite simple:
+The test itself is pretty straightforward:
 
-* It first navigates to our server at ``http://localhost:5000``.
-* It then finds our ``button`` element by its id and clicks it.
-* It then validates the ``h2`` element's content text to ``Button clicked``.
+* It first navigates to the server at ``http://localhost:5000``.
+* It will then find the ``button`` element by its id and click it.
+* Finaly, it will make sure the ``h2`` element's content text is ``Button clicked``.
 
-We assert base on the ``clicked`` boolean value,
-which will be false if our expected conditions are not met withing 10 seconds.
+| The assert statement evaluates the ``clicked`` boolean value,
+| which will be false if expected test conditions are not met withing 10 seconds.
 
 .. code-block:: csharp
 
@@ -97,7 +106,7 @@ which will be false if our expected conditions are not met withing 10 seconds.
        bool clicked;
        using (var driver = (IWebDriver)Activator.CreateInstance(drvType))
        {
-           WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+           var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
            driver.Navigate().GoToUrl("http://localhost:5000");
            driver.FindElement(By.Id("clickmeButton")).Click();
 
@@ -107,10 +116,9 @@ which will be false if our expected conditions are not met withing 10 seconds.
        Assert.True(clicked, "button not clicked.");
    }
 
-| In this case we designed our test-cases using attributes,
-| The follwing will run our ``TestButtonClick`` test **3** times, one for each ``TestCase``.
-| The result will of course be performing 3 tests, 1 with the ``chrome`` driver,
-| one with the ``firefox`` driver and one with the ``ie`` driver.
+| The test-cases will invoke the ``TestButtonClick`` test 3 times, one for each ``TestCase``.
+| The result will be 3 tests performed, one with the ``chrome`` driver, one with the ``firefox`` driver,
+| and one with the ``ie`` driver.
 
 .. code-block:: csharp
 
@@ -130,8 +138,9 @@ To check it out, just:
 
 ..
 
-   | Please note: Based on your personal environment, ``Internet Explorer`` might require specific configruation for the test to pass.
-   | If so, it's simple, please follow `this <http://www.programmersought.com/article/1603471677/>`_.
+   | Please note: Based on your personal environment,
+   | ``Internet Explorer`` may require specific configruation for the test to pass.
+   | If so, please follow `this <https://www.programmersought.com/article/1603471677/>`_.
 
 Acceptance Testing
 ==================
@@ -140,13 +149,13 @@ Acceptance Testing
 | `acceptance <acceptance>`_ |
 +----------------------------+
 
-For our acceptance tests we used:
+For acceptance tests I've used:
 
-* `Robot Framework <https://robotframework.org>`_ as the automation tool for executing our tests.
-* `SeleniumLibrary <https://robotframework.org/SeleniumLibrary/>`_ as the library providing tools for testing browser capbalities.
+* `Robot Framework <https://robotframework.org>`_ as the automation framework for executing the tests.
+* `SeleniumLibrary <https://robotframework.org/SeleniumLibrary/>`_ as the library providing browser capbalities and automation.
 
-| Please step into the ``acceptance`` folder, our next steps will be executed from it as our
-| acceptance tests doesn't have, nor should it have, any direct connection to our project base code.
+| For the next steps, step into the ``acceptance`` folder.
+| The acceptance tests doesn't have, nor should it have, any direct connection to the project's base code.
 
 Prepare Environment
 -------------------
@@ -159,20 +168,29 @@ Prepare Environment
 
    pip install --upgrade -r requirements.txt
 
-| As this is the acceptance tests part, our web app needs to be served somewhere.
-| You can follow the `Web Application section <#web-application>`_ to run our web app locally.
-| Or you can of course run it as you see fit.
+| As this is the acceptance tests part, **the tests needs a web server serving the web app.**
+| You can follow the `Web Application section <#web-application>`_ to run the web app locally, or run it as you see fit.
 | just **don't forget** to set the ``URL`` variable in `resources.robot <acceptance/resources.robot>`_ to the correct address:
 
 .. code-block:: robotframework
 
    ${URL}              http://localhost:5000
 
+Drivers
+-------
+
+| You can download the drivers stored in ``acceptance/drivers`` with the following links.
+| Just mind the versions and make sure they're in conjunction with the versions used in `DemoWebApp.Tests.csproj <DemoWebApp.Tests/DemoWebApp.Tests.csproj>`_.
+
+* `Chrome Driver <https://chromedriver.chromium.org/downloads>`_
+* `Internet Explorer Driver <https://www.selenium.dev/downloads/>`_
+* `Firefox Driver <https://github.com/mozilla/geckodriver/releases>`_
+
 Tests
 -----
 
-| `webapp_tests.robot <acceptance/webapp_tests.robot>`_ is our ``test suite``. We have 3 ``Test Cases``, one for each driver.
-| Each test-case uses our ``Test Template`` with its own ``Browser`` and ``Executable`` arguments.
+| `webapp_tests.robot <acceptance/webapp_tests.robot>`_ is the ``test suite``. It declares 3 ``Test Cases``, one for each driver.
+| Each test-case uses ``Test Template`` with its own ``Browser`` and ``Executable`` arguments.
 
 .. code-block:: robotframework
 
@@ -185,7 +203,7 @@ Tests
    Test With Internet Explorer    ie         drivers/iedriver
    Test With Firefox              firefox    drivers/geckodriver
 
-| Our ``Test Template`` actually calls our ``Keyword`` named ``Press Button``,
+| The ``Test Template`` invokes the keyword named ``Press Button``,
 | For each execution, what ``Press Button`` does is pretty self-explanatory by its ``BDD`` nature:
 
 .. code-block:: robotframework
@@ -198,19 +216,19 @@ Tests
        Validate New Text
        [Teardown]    Close Browser
 
-| The result of runing this test suite will be 3 tests, 1 for each driver,
+| The result of runing this test suite will be 3 tests, one for each driver,
 | each pressing the button and validating the side effects.
 
-| The ``Press Button`` actually uses 4 other keywords to accomplish its goal.
+| The ``Press Button`` uses 4 other keywords to perform its action.
 | As you can see in the ``Settings`` section, we declare `resources.robot <acceptance/resources.robot>`_ as a resource.
-| It provides us with the following custom ``Keywords``:
+| It provides us with the following custom keywords:
 
-* Open Browser With Url
-* Click Test Button
-* Validate New Text
+* ``Open Browser With Url``
+* ``Click Test Button``
+* ``Validate New Text``
 
-| The 4th keyword, ``Close Browser``, is not a custom one, it actually comes from `SeleniumLibrary <https://robotframework.org/SeleniumLibrary/>`_,
-| which is imported within our `resources.robot <acceptance/resources.robot>`_:
+| The 4th keyword, ``Close Browser``, is not a custom one, it comes from `SeleniumLibrary <https://robotframework.org/SeleniumLibrary/>`_,
+| imported within our `resources.robot <acceptance/resources.robot>`_:
 
 .. code-block:: robotframework
 
@@ -218,14 +236,16 @@ Tests
    ...
    Library          SeleniumLibrary
 
-To execute our acceptance tests, simplly run:
+The same library is also used in `resources.robot <acceptance/resources.robot>`_ by the custom keyowrds.
+
+To execute the acceptance tests, simplly run:
 
 .. code-block:: shell
 
    robot -d rfoutput webapp_tests.robot
 
-| This will run our tests and save a pretty and useful html report summary and xml logs in a folder
-| called ``rfoutput``. You can see and example of the summary report `here <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#report-file>`_.
+| This will run the tests and save a pretty and useful html report summary and xml logs in a folder
+| called ``rfoutput`` (gitignored). You can see and example of the summary report `here <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#report-file>`_.
 
 Links
 =====
