@@ -30,7 +30,7 @@ namespace DemoWebApp.Tests
             bool clicked;
             using (var driver = (IWebDriver)Activator.CreateInstance(drvType))
             {
-                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
                 driver.Navigate().GoToUrl("http://localhost:5000");
                 driver.FindElement(By.Id("clickmeButton")).Click();
 
