@@ -27,9 +27,9 @@ Base Requirements
 Web Application
 ===============
 
-+----------------------------+
-| `DemoWebApp <DemoWebApp>`_ |
-+----------------------------+
++--------------------------------+
+| `DemoWebApp <src/DemoWebApp>`_ |
++--------------------------------+
 
 | A simple ``C# WebApp`` created from the *basic template provided with* ``dotnet``.
 | On top of the base application I've added:
@@ -39,7 +39,7 @@ Web Application
 * | a ``script function`` called **clickButton** invoked by a click event from the **clickmeButton**
   | and changes the **displayHeader**'s content text to **Button clicked**.
 
-I've added these elements in `/DemoWebApp/Pages/Index.cshtml </DemoWebApp/Pages/Index.cshtml>`_.
+I've added these elements in `src/DemoWebApp/Pages/Index.cshtml <src/DemoWebApp/Pages/Index.cshtml>`_.
 
 To run the project and serve the app at ``http://localhost:5000``:
 
@@ -56,16 +56,16 @@ To run the project and serve the app at ``http://localhost:5000``:
 Unit Testing
 ============
 
-+----------------------------------------+
-| `DemoWebApp.Tests <DemoWebApp.Tests>`_ |
-+----------------------------------------+
++----------------------------------------------+
+| `DemoWebApp.Tests <tests/DemoWebApp.Tests>`_ |
++----------------------------------------------+
 
 For unit testing I've used:
 
 * `Nunit <https://nunit.org/>`_ as the testing framework the project.
 * `Selenium <https://www.selenium.dev/>`_ as the toolset providing browser capbalities and automation.
 
-`DemoWebAppTest.cs <DemoWebApp.Tests/DemoWebAppTest.cs>`_ is test class, ``Nunit`` will pick it up
+`DemoWebAppTest.cs <tests/DemoWebApp.Tests/DemoWebAppTest.cs>`_ is test class, ``Nunit`` will pick it up
 based on its name.
 
 I've used the ``OneTimeSetup`` attribute to spin-up the server prior of executing the test cases:
@@ -180,7 +180,7 @@ Drivers
 -------
 
 | You can download the drivers stored in ``acceptance/drivers`` with the following links.
-| Just mind the versions and make sure they're in conjunction with the versions used in `DemoWebApp.Tests.csproj <DemoWebApp.Tests/DemoWebApp.Tests.csproj>`_.
+| Just mind the versions and make sure they're in conjunction with the versions used in `DemoWebApp.Tests.csproj <tests/DemoWebApp.Tests/DemoWebApp.Tests.csproj>`_.
 
 * `Chrome Driver <https://chromedriver.chromium.org/downloads>`_
 * `Internet Explorer Driver <https://www.selenium.dev/downloads/>`_
