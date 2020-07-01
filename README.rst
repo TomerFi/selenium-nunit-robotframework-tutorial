@@ -17,7 +17,7 @@ Base Requirements
 * `Python > 3 <https://www.python.org/downloads/>`_ - written with ``Python 3.8.2`` (used for the acceptance tests).
 
 | Before starting, please clone this repository and step into the solution folder.
-| It will be easier to follow this guide, as the next steps will assume you have done so:
+| It will be easier to follow this tutorial, as the next steps will assume you have done so:
 
 .. code-block:: shell
 
