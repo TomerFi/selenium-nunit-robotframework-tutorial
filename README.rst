@@ -97,7 +97,7 @@ The test itself is pretty straightforward:
 * Finaly, it will make sure the ``h2`` element's content text is ``Button clicked``.
 
 | The assert statement evaluates the ``clicked`` boolean value,
-| which will be false if expected test conditions are not met withing 10 seconds.
+| which will be false if expected test conditions are not met within 10 seconds.
 
 .. code-block:: csharp
 
@@ -218,7 +218,6 @@ Tests
 
 | The result of runing this test suite will be 3 tests, one for each driver,
 | each pressing the button and validating the side effects.
-
 | The ``Press Button`` uses 4 other keywords to perform its action.
 | As you can see in the ``Settings`` section, we declare `resources.robot <acceptance/resources.robot>`_ as a resource.
 | It provides us with the following custom keywords:
