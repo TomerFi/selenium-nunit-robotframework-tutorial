@@ -51,7 +51,7 @@ To run the project and serve the app at ``http://localhost:5000``:
 
    | Please note: I want to clarify that the web application is not written by me,
    | It's the original template created with the command ``dotnet new webapp``.
-   | All id did was adding the ``button`` and ``h2`` tags, and the simple script.
+   | All I did was adding the ``button`` and ``h2`` tags, and the simple script.
 
 Unit Testing
 ============
@@ -65,7 +65,7 @@ For unit testing I've used:
 * `Nunit <https://nunit.org/>`_ as the testing framework the project.
 * `Selenium <https://www.selenium.dev/>`_ as the toolset providing browser capbalities and automation.
 
-`DemoWebAppTest.cs <DemoWebApp.Tests/DemoWebAppTest.cs>`_ is test class, ``Nunit`` will pick it
+`DemoWebAppTest.cs <DemoWebApp.Tests/DemoWebAppTest.cs>`_ is test class, ``Nunit`` will pick it up
 based on its name.
 
 I've used the ``OneTimeSetup`` attribute to spin-up the server prior of executing the test cases:
@@ -155,7 +155,7 @@ For acceptance tests I've used:
 * `SeleniumLibrary <https://robotframework.org/SeleniumLibrary/>`_ as the library providing browser capbalities and automation.
 
 | For the next steps, step into the ``acceptance`` folder.
-| The acceptance tests doesn't have, nor should it have, any direct connection to the project's base code.
+| The acceptance tests doesn't have, nor should it have, any direct connection to the solution's base code.
 
 Prepare Environment
 -------------------
@@ -235,7 +235,7 @@ Tests
    ...
    Library          SeleniumLibrary
 
-The same library is also used in `resources.robot <acceptance/resources.robot>`_ by the custom keyowrds.
+The same library is also used in by the custom keyowrds in `resources.robot <acceptance/resources.robot>`_.
 
 To execute the acceptance tests, simplly run:
 
@@ -244,7 +244,8 @@ To execute the acceptance tests, simplly run:
    robot -d rfoutput webapp_tests.robot
 
 | This will run the tests and save a pretty and useful html report summary and xml logs in a folder
-| called ``rfoutput`` (gitignored). You can see and example of the summary report `here <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#report-file>`_.
+| called ``rfoutput`` (gitignored).
+| You can see an example of the summary report `here <https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#report-file>`_.
 
 Links
 =====
