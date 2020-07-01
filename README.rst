@@ -45,7 +45,7 @@ To run the project and serve the app at ``http://localhost:5000``:
 
 .. code-block:: shell
 
-   dotnet run -p DemoWebApp
+   dotnet run -p src/DemoWebApp
 
 ..
 
