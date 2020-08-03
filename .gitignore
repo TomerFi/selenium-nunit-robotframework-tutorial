@@ -19,6 +19,7 @@
 .project
 .settings
 *.code-workspace
+.vs
 
 # Maven
 target
