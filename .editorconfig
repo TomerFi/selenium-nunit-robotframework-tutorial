@@ -6,24 +6,6 @@ charset = utf-8
 end_of_line = crlf
 insert_final_newline = true
 
-[**.java]
-indent_style = space
-indent_size = 2
-max_line_length = 100
-trim_trailing_whitespace = true
-
-[**.groovy]
-indent_style = space
-indent_size = 4
-max_line_length = 120
-trim_trailing_whitespace = true
-
-[**.proto]
-indent_style = space
-indent_size = 2
-max_line_length = 80
-trim_trailing_whitespace = true
-
 [**.{xml,csproj,vbproj}]
 indent_style = space
 indent_size = 2
@@ -46,13 +28,6 @@ trim_trailing_whitespace = true
 [**.md]
 trim_trailing_whitespace = false
 max_line_length = 120
-
-[**.config]
-end_of_line = lf
-
-[**.json]
-indent_style = space
-indent_size = 4
 
 [**.robot]
 indent_style = space
