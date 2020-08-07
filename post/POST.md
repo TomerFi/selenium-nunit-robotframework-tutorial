@@ -8,7 +8,7 @@ tags: ["beginners", "testing", "selenium", "robotframework"]
 ## Selenium, NUnit, and Robot Framework Walkthrough
 
 Let me start by saying, I'm not a frontend developer by no stretch of the imagination.</br>
-I don't do web pages, or UI's... I have a very poor taste in colors, elements and what not...</br>
+I don't do web pages, or UI's...</br>
 :smirk:
 
 But...</br>
