@@ -3,6 +3,7 @@ title: Experimenting with RobotFramework and Selenium
 published: false
 description: A walkthrough a C# web app tested with Nunit, Selenium, and RobotFramework.
 tags: ["beginners", "testing", "selenium", "robotframework"]
+cover_image: https://source.unsplash.com/5L0R8ZqPZHk
 ---
 
 ## Selenium, NUnit, and Robot Framework Walkthrough
